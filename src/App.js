@@ -58,13 +58,13 @@ class TodoList extends Component {
   }
 
   editRequest = (index) => {
-    var temp = [...this.state.todos]
-    temp = this.state.todos.map((todos, idx) => {
+    // var temp = [...this.state.todos]
+    var temp = this.state.todos.map((todos, idx) => {
       if (idx === index) {
-        return "if-ed"
+        return temp = "if-ed"
       }
-      else {
-        return temp
+      else{
+        return todos
       }
     });
     this.setState({ todos: temp })
