@@ -27,18 +27,16 @@ class TodoList extends Component {
     console.log(event.target.value)
   };
 
-  setEdit = (temp,idx) => {
-    console.log("line 31",this.state.edtemp,temp)
+  setEdit = (idx) => {
     var temp2 = this.state.todos.map((todos, index) => {
       if (idx === index) {
-        // return "hi"
-        return ( this.state.edtemp)
+        return (this.state.edtemp)
       }
       else {
         return todos
       }
     });
-    this.setState({todos:temp2})
+    this.setState({ todos: temp2 })
   }
 
   setName = event => {
@@ -79,25 +77,29 @@ class TodoList extends Component {
     this.setState({ todos: temp })
   }
 
+  cancelEdit = temp => {
+    this.setState({ todos: temp, edtemp: ""})
+  }
+
   editRequest = (index) => {
     var temp1 = this.state.todos.map((todos, idx) => {
+      var temp = this.state.todos.map((todos) => { return todos })
       if (idx === index) {
+
         return (
-          {todos},
           <div>
-          <form>
-          <label>
-          <input id="editbox" name="editme" type="text" placeholder="Enter your edit here" onChange={this.handleEdit}></input>
-          </label>
-          <button type="button" onClick={()=> {this.setEdit(temp1,idx)}}>Add to list</button></form></div>)
+            <input id="editbox" name="editme" type="text" placeholder={todos} onChange={this.handleEdit}></input>
+            <button type="button" onClick={() => { this.setEdit(idx) }}>Save</button>
+            <button type="button" onClick={() => { this.cancelEdit(temp) }}>Cancel</button>
+          </div>)
       }
       else {
         return todos
       }
     });
-    this.setState({todos:temp1})
+    this.setState({ todos: temp1 })
   }
-  
+
   render() {
     const theList = this.state.todos.map((todos, index) => <span key={index} className="listItem"><ul><button onClick={() => { this.imDone(index) }}>DELETE</button>{todos}<button onClick={() => { this.editRequest(index) }}>EDIT</button></ul></span>);
     console.log(theList)
@@ -110,7 +112,7 @@ class TodoList extends Component {
         </div>
         <div className="thelist">
           <h1><u>{this.state.user} To-Do List</u></h1>
-          <p><b>{this.state.todos.length} things left to do.</b></p>
+          <p><b>{this.state.todos.length} thing(s) left to do.</b></p>
           <form>
             <label htmlFor="taskName">Task Name:</label>
             <input onChange={this.handleChange} name="taskName" type="text" placeholder="Add a task here" value={this.state.current}></input>
