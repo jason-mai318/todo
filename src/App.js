@@ -8,7 +8,8 @@ class TodoList extends Component {
       todos: [],
       current: "",
       temp: "",
-      user: "Your"
+      user: "Your",
+      edtemp: ""
     };
   }
 
@@ -18,6 +19,27 @@ class TodoList extends Component {
     })
     console.log(event.target.value)
   };
+
+  handleEdit = event => {
+    this.setState({
+      edtemp: event.target.value
+    })
+    console.log(event.target.value)
+  };
+
+  setEdit = (temp,idx) => {
+    console.log("line 31",this.state.edtemp,temp)
+    var temp2 = this.state.todos.map((todos, index) => {
+      if (idx === index) {
+        // return "hi"
+        return ( this.state.edtemp)
+      }
+      else {
+        return todos
+      }
+    });
+    this.setState({todos:temp2})
+  }
 
   setName = event => {
     event.preventDefault();
@@ -58,20 +80,27 @@ class TodoList extends Component {
   }
 
   editRequest = (index) => {
-    // var temp = [...this.state.todos]
-    var temp = this.state.todos.map((todos, idx) => {
+    var temp1 = this.state.todos.map((todos, idx) => {
       if (idx === index) {
-        return temp = "if-ed"
+        return (
+          {todos},
+          <div>
+          <form>
+          <label>
+          <input id="editbox" name="editme" type="text" placeholder="Enter your edit here" onChange={this.handleEdit}></input>
+          </label>
+          <button type="button" onClick={()=> {this.setEdit(temp1,idx)}}>Add to list</button></form></div>)
       }
-      else{
+      else {
         return todos
       }
     });
-    this.setState({ todos: temp })
+    this.setState({todos:temp1})
   }
-
+  
   render() {
     const theList = this.state.todos.map((todos, index) => <span key={index} className="listItem"><ul><button onClick={() => { this.imDone(index) }}>DELETE</button>{todos}<button onClick={() => { this.editRequest(index) }}>EDIT</button></ul></span>);
+    console.log(theList)
     return (
       <div className='container'>
         <div className="navBar">
