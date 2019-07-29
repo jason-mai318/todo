@@ -101,7 +101,7 @@ class TodoList extends Component {
   }
 
   render() {
-    const theList = this.state.todos.map((todos, index) => <span key={index} className="listItem"><ul><button onClick={() => { this.imDone(index) }}>DELETE</button>{todos}<button onClick={() => { this.editRequest(index) }}>EDIT</button></ul></span>);
+    const theList = this.state.todos.map((todos, index) => <span key={index} className="listItem"><button onClick={() => { this.imDone(index) }}>DELETE</button>{todos}<button onClick={() => { this.editRequest(index) }}>EDIT</button></span>);
     console.log(theList)
     return (
       <div className='container'>
