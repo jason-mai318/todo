@@ -4,31 +4,54 @@ body{
 
 .navBar{
   display:flex;
+  align-items: center;
   justify-content: center;
   background-color: rgb(51, 101, 238);
   height: 5vh;
   position: sticky;
+  top: 0;
   font-size: 5vh;
 }
+
 #nameText{
-  font-size: 4vh;
+  font-size: 4vmin;
+  margin-right: 1vw;
 }
+
+#nameInputBox{
+  border: none;
+  background-color: rgb(51, 101, 238);
+  font-size: 3vmin;
+  color: white;
+  border-bottom: 0.2vh solid black;
+}
+
 .container{
   margin: 0vw 5vw 0vw 5vw;
   display: flex;
   flex-flow: column;
   align-items: center;
 }
+
 .titleblock{
+  width: 100%;
+  background-color:skyblue; 
   margin-bottom: 3vh;
+  position: sticky;
+  top: 5vh;
+  border-bottom: .5vh dotted blue;
 }
-#nametag, #tasksleft{
+
+#nametag, #tasksleft, #addtaskform{
   display: flex;
   justify-content:center; 
 }
 
+#addtaskform{
+  margin-bottom:5vh;
+}
+
 .theList{
-  border-top: .5vh dotted blue;
   width: 100%;
 }
 
@@ -41,17 +64,21 @@ body{
   display: flex;
   justify-content: space-between;
   border-radius: 3vw;
-
+  overflow: auto;
 }
 
 .listButtons{
   border-radius: 3vw;
   margin-top: 0.5vh;
-  width:5vw;
+  width:12vw;
   height: 4vh;
   color:black;
   background-color: palegoldenrod;
   margin-left:.5vw;
   margin-right: .5vw;
-  font-size: 1vmax;
+  font-size: 3vmin;
+}
+
+.taskText{
+  font-size: 3vmin;
 }
