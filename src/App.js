@@ -78,7 +78,7 @@ class TodoList extends Component {
   }
 
   cancelEdit = temp => {
-    this.setState({ todos: temp, edtemp: ""})
+    this.setState({ todos: temp, edtemp: "" })
   }
 
   editRequest = (index) => {
@@ -101,24 +101,28 @@ class TodoList extends Component {
   }
 
   render() {
-    const theList = this.state.todos.map((todos, index) => <span key={index} className="listItem"><button onClick={() => { this.imDone(index) }}>DELETE</button>{todos}<button onClick={() => { this.editRequest(index) }}>EDIT</button></span>);
+    const theList = this.state.todos.map((todos, index) => <span key={index} className="listItem"><button className="listButtons" onClick={() => { this.imDone(index) }}>Delete</button><span>{todos}</span><button className="listButtons" onClick={() => { this.editRequest(index) }}><b>Edit</b></button></span>);
     console.log(theList)
     return (
-      <div className='container'>
+      <div className='supercontainer'>
         <div className="navBar">
           <div id="nameText"><b>Set Your Name Here:</b></div>
           <input id="nameInputBox" onChange={this.handleName} name="userName" type="text" placeholder="Enter your name" value={this.state.temp}></input>
           <button type="submit" onClick={this.setName}>Enter</button>
         </div>
-        <div className="thelist">
-          <h1><u>{this.state.user} To-Do List</u></h1>
-          <p><b>{this.state.todos.length} thing(s) left to do.</b></p>
-          <form>
-            <label htmlFor="taskName">Task Name:</label>
-            <input onChange={this.handleChange} name="taskName" type="text" placeholder="Add a task here" value={this.state.current}></input>
-            <button type="submit" onClick={this.addItem}>Add to list</button>
-          </form>
-          <ul>{theList}</ul>
+        <div className="container">
+          <div className="titleblock">
+            <h1 id="nametag"><u>{this.state.user} To-Do List</u></h1>
+            <p id="tasksleft"><b>{this.state.todos.length} thing(s) left to do.</b></p>
+            <form>
+              <label htmlFor="taskName">Task Name:</label>
+              <input onChange={this.handleChange} name="taskName" type="text" placeholder="Add a task here" value={this.state.current}></input>
+              <button type="submit" onClick={this.addItem}>Add to list</button>
+            </form>
+          </div>
+          <div className="theList">
+            {theList}
+          </div>
         </div>
       </div>
     );

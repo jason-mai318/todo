@@ -1,11 +1,11 @@
 body{
-  background-color: aquamarine
+  background-color: skyblue
 }
 
 .navBar{
   display:flex;
   justify-content: center;
-  background-color: tomato;
+  background-color: rgb(51, 101, 238);
   height: 5vh;
   position: sticky;
   font-size: 5vh;
@@ -13,18 +13,45 @@ body{
 #nameText{
   font-size: 4vh;
 }
-.thelist{
-  margin-right: 5vw;
+.container{
+  margin: 0vw 5vw 0vw 5vw;
   display: flex;
   flex-flow: column;
-  justify-content: space-between;
+  align-items: center;
 }
+.titleblock{
+  margin-bottom: 3vh;
+}
+#nametag, #tasksleft{
+  display: flex;
+  justify-content:center; 
+}
+
+.theList{
+  border-top: .5vh dotted blue;
+  width: 100%;
+}
+
 .listItem{
   margin-top: 0.5vh;
   height: 5vh;
+  width: 100%;
   border: .1vh solid black;
-  background-color: tomato;
+  background: rgb(255, 155, 0);
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  border-radius: 3vw;
 
+}
+
+.listButtons{
+  border-radius: 3vw;
+  margin-top: 0.5vh;
+  width:5vw;
+  height: 4vh;
+  color:black;
+  background-color: palegoldenrod;
+  margin-left:.5vw;
+  margin-right: .5vw;
+  font-size: 1vmax;
 }
