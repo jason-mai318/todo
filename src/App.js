@@ -50,7 +50,7 @@ class TodoList extends Component {
     else {
       this.setState({
         user: 'Your',
-        temp: ""
+        temp: "",
       })
     }
   };
@@ -101,23 +101,23 @@ class TodoList extends Component {
   }
 
   render() {
-    const theList = this.state.todos.map((todos, index) => <span key={index} className="listItem"><button className="listButtons" onClick={() => { this.imDone(index) }}><b>Delete</b></button><span className="taskText">{todos}</span><button className="listButtons" onClick={() => { this.editRequest(index) }}><b>Edit</b></button></span>);
+    const theList = this.state.todos.map((todos, index) => <span key={index} className="listItem"><button className="listButtons" onClick={() => { this.imDone(index) }}><b>Delete</b></button><span className="taskText"><b>{index+1}: </b>{todos}</span><button className="listButtons" onClick={() => { this.editRequest(index) }}><b>Edit</b></button></span>);
     console.log(theList)
     return (
       <div className='supercontainer'>
         <div className="navBar">
           <div id="nameText"><b>Set Name:</b></div>
-          <input id="nameInputBox" onChange={this.handleName} name="userName" type="text" placeholder="Enter your name" value={this.state.temp}></input>
-          <button type="submit" onClick={this.setName}>Enter</button>
+          <input id="nameInputBox" onChange={this.handleName} name="userName" type="text" placeholder="Enter your name here" value={this.state.temp}></input>
+          <button type="submit" id="changeNameButton" onClick={this.setName}>Enter</button>
         </div>
         <div className="container">
           <div className="titleblock">
             <h1 id="nametag"><u>{this.state.user} To-Do List</u></h1>
             <p id="tasksleft"><b>{this.state.todos.length} thing(s) left to do.</b></p>
             <form id="addtaskform">
-              <label htmlFor="taskName">Task Name:</label>
-              <input onChange={this.handleChange} name="taskName" type="text" placeholder="Add a task here" value={this.state.current}></input>
-              <button type="submit" onClick={this.addItem}>Add to list</button>
+              <label htmlFor="taskName">New Task:</label>
+              <input onChange={this.handleChange} id="taskInputBox" name="taskName" type="text" placeholder="Type your task here then press enter." value={this.state.current}></input>
+              <button type="submit" id="addToList"onClick={this.addItem}>Add to list</button>
             </form>
           </div>
           <div className="theList">

@@ -34,20 +34,54 @@ body{
 }
 
 .titleblock{
-  width: 100%;
+  width: 105%;
   background-color:skyblue; 
   margin-bottom: 3vh;
   position: sticky;
   top: 5vh;
   border-bottom: .5vh dotted blue;
 }
+#addToList, #changeNameButton{
+  font-size: 2vmin;
+}
+
+#taskInputBox{
+  border: none;
+  border-bottom: .25vh solid black;
+  background-color: skyblue;
+  margin-top: -1vh;
+  font-size: 3.25vmin;
+  width:60vmin;
+  margin-left: 1vw;
+}
+
+#changeNameButton{
+  border-radius: 3vw;
+  height: 4vh;
+  width: 10vmin;
+}
+
+#addToList{
+  border-radius: 3vw;
+  margin-top: -1vh;
+  margin-left: 1vw;
+  height: 6vh;
+  width: 15vmin;
+  background-color: aquamarine;
+}
 
 #nametag, #tasksleft, #addtaskform{
+  font-size: 3.5vmin;
   display: flex;
-  justify-content:center; 
+  justify-content:center;
+}
+
+#tasksleft{
+  font-size: 2.5vmin;
 }
 
 #addtaskform{
+  font-size: 3vmin;
   margin-bottom:5vh;
 }
 
@@ -57,7 +91,7 @@ body{
 
 .listItem{
   margin-top: 0.5vh;
-  height: 5vh;
+  min-height: 5vh;
   width: 100%;
   border: .1vh solid black;
   background: rgb(255, 155, 0);
@@ -81,4 +115,6 @@ body{
 
 .taskText{
   font-size: 3vmin;
+  width:50%;
+  word-wrap: break-word;
 }
